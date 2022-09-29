@@ -21,11 +21,13 @@ btnStop.addEventListener('click', onStopBtn);
 
 function onStartBtn(e) {
   e.target.classList.toggle('green');
-  // e.target.setAttribute('disabled', true);
-  window.document.body.style.background = getRandomHexColor();
+  e.target.setAttribute('disabled', true);
+  setTimeout(() => {
+    window.document.body.style.background = getRandomHexColor();
+  }, 1000);
 }
 
 function onStopBtn(e) {
   e.target.classList.toggle('red');
-  window.document.body.style.background = ''
+  window.document.body.style.background = '';
 }
