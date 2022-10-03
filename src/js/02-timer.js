@@ -55,7 +55,7 @@ refs.btnStart.disabled = 'disabled';
 const SELECTED_DATA = 'selected-data-item';
 console.log(SELECTED_DATA);
 
-options = {
+const options = {
   enableTime: true,
   time_24hr: true,
   defaultDate: new Date(),
