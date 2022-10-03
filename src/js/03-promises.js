@@ -9,18 +9,6 @@ const formRef = document.querySelector('.form');
 
 formRef.addEventListener('submit', onFormSubmit);
 
-function onFormSubmit(e) {
-  e.preventDefault();
-
-  const params = {};
-
-  new FormData(e.target).forEach((value, name) => {
-    params[name] = parseInt(value);
-  });
-
-  generatePromises(params);
-}
-
 createPromise = (position, delay) => {
   return new Promise((resolve, reject) => {
     const shouldResolve = Math.random() > 0.3;
@@ -41,6 +29,20 @@ onSuccess = ({ position, delay }) => {
 onError = ({ position, delay }) => {
   Notify.failure(`❌ Rejected promise ${position} in ${delay}ms`);
 };
+
+function onFormSubmit(e) {
+  e.preventDefault();
+
+  const params = {};
+
+  new FormData(e.target).forEach((value, name) => {
+    params[name] = parseInt(value);
+  });
+
+  generatePromises(params);
+}
+
+
 
 function generatePromises({ delay, step, amount }) {
   let delayStep = delay;
