@@ -22,11 +22,11 @@ const createPromise = (position, delay) => {
   });
 };
 
-onSuccess = ({ position, delay }) => {
+const onSuccess = ({ position, delay }) => {
   Notify.success(`✅ Fulfilled promise ${position} in ${delay}ms`);
 };
 
-onError = ({ position, delay }) => {
+const onError = ({ position, delay }) => {
   Notify.failure(`❌ Rejected promise ${position} in ${delay}ms`);
 };
 
