@@ -13,21 +13,20 @@ function getRandomHexColor() {
 
 const btnStart = document.querySelector('[data-start]');
 const btnStop = document.querySelector('[data-stop]');
-
-console.log(btnStart);
+const bodyRef = document.querySelector('body');
+let timeId = null;
 
 btnStart.addEventListener('click', onStartBtn);
 btnStop.addEventListener('click', onStopBtn);
 
-function onStartBtn(e) {
-  e.target.classList.toggle('green');
-  e.target.setAttribute('disabled', true);
-  setTimeout(() => {
-    window.document.body.style.background = getRandomHexColor();
+function onStartBtn() {
+  btnStart.disabled = true;
+  timeId = setInterval(() => {
+    bodyRef.style.backgroundColor = getRandomHexColor();
   }, 1000);
 }
 
-function onStopBtn(e) {
-  e.target.classList.toggle('red');
-  window.document.body.style.background = '';
+function onStopBtn() {
+  btnStart.disabled = false;
+  clearInterval(timeId);
 }
