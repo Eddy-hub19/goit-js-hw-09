@@ -55,23 +55,20 @@ refs.btnStart.disabled = 'disabled';
 const SELECTED_DATA = 'selected-data-item';
 console.log(SELECTED_DATA);
 
-flatpickr(
-  refs.inputTimer,
-  (options = {
-    enableTime: true,
-    time_24hr: true,
-    defaultDate: new Date(),
-    minuteIncrement: 1,
-    onClose(selectedDates) {
-      if (this.selectedDates[0] > Date.now()) {
-        refs.btnStart.disabled = null;
-        Notify.success('Goog! You choose a date in the future');
-      } else {
-        return Notify.failure('Please choose a date in the future');
-      }
-    },
-  })
-);
+options = {
+  enableTime: true,
+  time_24hr: true,
+  defaultDate: new Date(),
+  minuteIncrement: 1,
+  onClose(selectedDates) {
+    if (this.selectedDates[0] > Date.now()) {
+      refs.btnStart.disabled = null;
+      Notify.success('Goog! You choose a date in the future');
+    } else {
+      return Notify.failure('Please choose a date in the future');
+    }
+  },
+};
 const ACTION_DELAY = 1000;
 const fp = flatpickr('#datetime-picker', options);
 
