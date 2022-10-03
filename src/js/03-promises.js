@@ -9,7 +9,7 @@ const formRef = document.querySelector('.form');
 
 formRef.addEventListener('submit', onFormSubmit);
 
-createPromise = (position, delay) => {
+const createPromise = (position, delay) => {
   return new Promise((resolve, reject) => {
     const shouldResolve = Math.random() > 0.3;
     setTimeout(() => {
@@ -41,8 +41,6 @@ function onFormSubmit(e) {
 
   generatePromises(params);
 }
-
-
 
 function generatePromises({ delay, step, amount }) {
   let delayStep = delay;
